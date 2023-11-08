@@ -1,5 +1,5 @@
 # distutils: language = c++
-
+# cython: profile=True
 import nltk
 from nltk.corpus import stopwords
 from libcpp.vector cimport vector
@@ -24,11 +24,6 @@ cdef string deleteSpecChar(string word):
 
     #word = word.replace(b'.', b'')
     return word
-
-def f7(seq):
-    seen = set()
-    seen_add = seen.add
-    return [x for x in seq if not (x in seen or seen_add(x))]
 
 cdef vector[int] vectorize(vector[string] tokens, vector[string] merge):
     cdef vector[int] vecTxt
@@ -93,7 +88,6 @@ def main():
 
     cdef double cosSim = cosineSimilarity(vecTxt1, vecTxt2)
 
-    print()
     print(cosSim)
 
     return 0;

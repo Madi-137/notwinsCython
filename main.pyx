@@ -22,7 +22,7 @@ cdef string deleteSpecChar(string word):
         if word[i] in specChar:
             word[i] = empty[0]
 
-    #word = word.replace(b'.', b'')
+
     return word
 
 cdef vector[int] vectorize(vector[string] tokens, vector[string] merge):
@@ -47,9 +47,10 @@ cdef double cosineSimilarity(vector[int] vector1, vector[int] vector2):
     cosSim = mul / (sqrt(d_a) * sqrt(d_b))
     return cosSim
 
-
 def main():
 
+    cdef int madiP = 0
+    cdef double dobmadi = 0.4324253
     # Чтение файлов
     text1 = open("text1.txt", "r")
     readTxt1 = text1.read().encode('utf-8').lower()
@@ -77,7 +78,6 @@ def main():
     cdef vector[string] merge = tokens1
     merge.insert(merge.end(), tokens2.begin(), tokens2.end())
 
-    #result = f7(merge)
     cdef unordered_set[string] s
     for value in merge:
         s.insert(value)

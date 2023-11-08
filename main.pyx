@@ -49,13 +49,10 @@ cdef double cosineSimilarity(vector[int] vector1, vector[int] vector2):
 
 def main():
 
-    cdef int madiP = 0
-    cdef double dobmadi = 0.4324253
     # Чтение файлов
     text1 = open("text1.txt", "r")
     readTxt1 = text1.read().encode('utf-8').lower()
     text1.close()
-
     text2 = open("text2.txt", "r")
     readTxt2 = text2.read().encode('utf-8').lower()
     text2.close()
